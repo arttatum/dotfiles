@@ -1,0 +1,20 @@
+layout {
+    pane {
+		cwd "/home/path"
+		command "lf"
+		name "Files"
+		size "15%"
+    }
+    pane split_direction="vertical" {
+		pane command="nvim" {
+			name "Coding"
+			cwd "/home/coding"
+		}
+		pane command="zsh" {
+			cwd "/home/terminal"
+			args "-c" "things to do"
+			size "30%"
+			focus true
+		}
+	}
+}
