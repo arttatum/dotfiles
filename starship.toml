@@ -26,7 +26,7 @@ $memory_usage
 """
 
 [memory_usage]
-disabled = true 
+disabled = true
 threshold = -1
 symbol = ' '
 format = 'mem: [${ram_pct}( | ${swap})]($style) '
@@ -36,7 +36,7 @@ style = 'bold dimmed green'
 [git_metrics]
 only_nonzero_diffs = true
 disabled = false
- 
+
 [character]
 success_symbol = "[ insert❯](purple)"
 error_symbol = "[ insert❯](red)"

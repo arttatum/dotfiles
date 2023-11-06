@@ -1,6 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 local fileexplorer = require("nvim-tree")
 
 fileexplorer.setup({
@@ -13,13 +10,11 @@ fileexplorer.setup({
 })
 
 vim.keymap.set("n", "<leader>s", function()
-    fileexplorer.open()
+	fileexplorer.open()
 end)
 
 local view = require("nvim-tree.view")
 
 vim.keymap.set("n", "<leader>w", function()
-    view.close()
-end
-)
-
+	view.close()
+end)

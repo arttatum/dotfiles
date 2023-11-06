@@ -205,7 +205,7 @@ plugins {
 //   - true (default)
 //   - false
 //
- pane_frames false 
+ pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -237,12 +237,12 @@ plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "dracula"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+// default_layout ""
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -304,8 +304,8 @@ plugins {
 
 // The folder in which Zellij will look for layouts
 //
- layout_dir "/home/USER/.config/zellij/layouts"
+ layout_dir "/home/wloughne/.config/zellij/layouts"
 
 // The folder in which Zellij will look for themes
 //
- theme_dir "/home/USER/.config/zellij/themes"
+ theme_dir "/home/wloughne/.config/zellij/themes"
