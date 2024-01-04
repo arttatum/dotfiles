@@ -100,7 +100,7 @@ require("packer").startup(function(use)
 	use({ "mhartington/formatter.nvim" })
 
 	-- Harpoon -> like marks, but better
-	use({ "ThePrimeagen/harpoon" })
+	use({ "ThePrimeagen/harpoon", branch = "harpoon2", requires = "nvim-lua/plenary.nvim" })
 
 	-- Sessions (odd interaction with alpha)
 	-- use({ "rmagatti/auto-session" })
