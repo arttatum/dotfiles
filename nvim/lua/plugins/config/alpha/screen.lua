@@ -51,7 +51,7 @@ local config = {
 	layout = {
 		{
 			type = "terminal",
-			command = require("plugins.config.alpha.commands").bonsai(vim.fn.getcwd():match("[^/]*$")),
+			command = require("plugins.config.alpha.commands").bonsai(),
 			width = 120,
 			height = term_height,
 			opts = {

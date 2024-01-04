@@ -1,78 +1,12 @@
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.foldingRange = {
--- 	dynamicRegistration = false,
--- 	lineFoldingOnly = true,
--- }
--- local language_servers = require("lspconfig").util.available_servers()
--- for _, ls in ipairs(language_servers) do
--- 	require("lspconfig")[ls].setup({
--- 		capabilities = capabilities,
--- 	})
--- end
-local lsp = require("lsp-zero")
+local lsp_zero = require("lsp-zero")
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-	"rust_analyzer",
-})
-
--- Fix Undefined global 'vim'
-lsp.configure("sumneko_lua", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
-})
-
-lsp.configure("tsserver", {
-	settings = {
-		typescript = {
-			format = {
-				convertTabsToSpaces = true,
-			},
-		},
-	},
-})
-
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-	["<C-y>"] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
-
--- disable completion with tab
--- this helps with copilot setup
--- cmp_mappings['<Tab>'] = nil
--- cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings,
-})
-
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = "E",
-		warn = "W",
-		hint = "H",
-		info = "I",
-	},
-})
-
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
 	end, opts)
-	vim.keymap.set("n", "Z", function()
+	vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
 	vim.keymap.set("n", "<leader>vws", function()
@@ -100,11 +34,50 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.signature_help()
 	end, opts)
 end)
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-vim.api.nvim_set_keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
-vim.diagnostic.config({
-	virtual_text = true,
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = { "lua_ls", "tsserver", "rust_analyzer" },
+	handlers = {
+		lsp_zero.default_setup,
+		lua_ls = function()
+			local lua_opts = lsp_zero.nvim_lua_ls()
+			require("lspconfig").lua_ls.setup(lua_opts)
+		end,
+	},
 })
-lsp.setup()
+
+local cmp = require("cmp")
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+local lspkind = require("lspkind")
+cmp.setup({
+	sources = {
+		{ name = "path" },
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "luasnip", keyword_length = 2 },
+		{ name = "buffer", keyword_length = 3 },
+	},
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			-- can also be a function to dynamically calculate max width such as
+			-- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-y>"] = cmp.mapping.confirm({ select = true }),
+		["<C-Space>"] = cmp.mapping.complete(),
+	}),
+})

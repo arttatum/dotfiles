@@ -1,15 +1,12 @@
-local packer_download_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
--- Download Packer if it doesn't already exist
-if vim.fn.empty(vim.fn.glob(packer_download_path)) > 0 then
-	print("Packer not found, downloading...")
-	vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", packer_download_path })
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	packer_bootstrap =
+		vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 end
 
--- Equivalent to running packadd packer.nvim in Command Mode
-vim.cmd("packadd packer.nvim")
+vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function(use)
+require("packer").startup(function(use)
 	-- Copy paste over ssh
 	use("ojroques/nvim-osc52")
 
@@ -17,6 +14,15 @@ return require("packer").startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("folke/tokyonight.nvim")
 	use("rebelot/kanagawa.nvim")
+
+	-- Notifications
+	use("rcarriga/nvim-notify")
+
+	-- UI config
+	use("stevearc/dressing.nvim")
+
+	-- Add symbols to LSP suggestions
+	use("onsails/lspkind.nvim")
 
 	-- File explorer
 	use({
@@ -27,6 +33,9 @@ return require("packer").startup(function(use)
 		tag = "nightly",
 	})
 
+	use({
+		"mrcjkb/rustaceanvim",
+	})
 	-- Syntax Parser
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -42,7 +51,7 @@ return require("packer").startup(function(use)
 	-- Language Server Management
 	use({
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v1.x",
+		branch = "v2.x",
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
@@ -113,12 +122,6 @@ return require("packer").startup(function(use)
 	-- S[new_surround] -> for visual / visual line mode,
 	use("tpope/vim-surround")
 
-	-- Java
-	use({
-		"mfussenegger/nvim-jdtls",
-		disable = false,
-	})
-
 	-- folds
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
@@ -142,4 +145,8 @@ return require("packer").startup(function(use)
 			require("toggleterm").setup()
 		end,
 	})
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
