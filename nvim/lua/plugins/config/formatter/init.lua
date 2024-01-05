@@ -1,6 +1,5 @@
 -- Utilities for creating configurations
 local util = require("formatter.util")
-
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -17,26 +16,26 @@ require("formatter").setup({
 			require("formatter.filetypes.lua").stylua,
 
 			-- You can also define your own configuration
-			function()
-				-- Supports conditional formatting
-				if util.get_current_buffer_file_name() == "special.lua" then
-					return nil
-				end
-
-				-- Full specification of configurations is down below and in Vim help
-				-- files
-				return {
-					exe = "stylua",
-					args = {
-						"--search-parent-directories",
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-						"--",
-						"-",
-					},
-					stdin = true,
-				}
-			end,
+			--			function()
+			--				-- Supports conditional formatting
+			--				if util.get_current_buffer_file_name() == "special.lua" then
+			--					return nil
+			--				end
+			--
+			--				-- Full specification of configurations is down below and in Vim help
+			--				-- files
+			--				return {
+			--					exe = "stylua",
+			--					args = {
+			--						"--search-parent-directories",
+			--						"--stdin-filepath",
+			--						util.escape_path(util.get_current_buffer_file_path()),
+			--						"--",
+			--						"-",
+			--					},
+			--					stdin = true,
+			--				}
+			--			end,
 		},
 		typescript = {
 			require("formatter.filetypes.typescript").eslint_d,
@@ -56,8 +55,5 @@ require("formatter").setup({
 })
 
 vim.cmd([[
-	augroup FormatAutogroup
-	    autocmd!
-	    autocmd BufWritePost * FormatWrite
-	augroup END
+	    autocmd! BufWritePost * FormatWrite
 	]])
