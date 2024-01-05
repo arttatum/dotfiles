@@ -155,7 +155,15 @@ require("packer").startup(function(use)
 	-- yss[new_surround]-> create surround around whole line,
 	-- ds[surround_to_delete] -> delete,
 	-- S[new_surround] -> for visual / visual line mode,
-	use("tpope/vim-surround")
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	})
 
 	-- folds
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
