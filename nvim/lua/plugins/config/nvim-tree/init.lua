@@ -11,10 +11,10 @@ fileexplorer.setup({
 
 vim.keymap.set("n", "<leader>s", function()
 	fileexplorer.open()
-end)
+end, { desc = "Open file explorer" })
 
 local view = require("nvim-tree.view")
 
 vim.keymap.set("n", "<leader>w", function()
 	view.close()
-end)
+end, { desc = "Close file explorer" })
