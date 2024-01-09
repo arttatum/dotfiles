@@ -1,22 +1,21 @@
 -- Create button for initial keybind.
---- @param sc string
+--- @param shortcut string
 --- @param txt string
 --- @param keybind string optional
---- @param keybind_opts table optional
-local function button(sc, txt, keybind, keybind_opts)
-	local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
+local function button(shortcut, txt, keybind)
+	local sc_ = shortcut:gsub("%s", ""):gsub("SPC", "<leader>")
 
 	local opts = {
 		position = "center",
-		shortcut = sc,
+		shortcut = shortcut,
 		cursor = 5,
 		width = 50,
 		align_shortcut = "right",
 		hl_shortcut = "Conditional",
 	}
+
 	if keybind then
-		keybind_opts = vim.F.if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
-		opts.keymap = { "n", sc_, keybind, keybind_opts }
+		opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true, nowait = true } }
 	end
 
 	local function on_press()
@@ -46,7 +45,7 @@ local buttons = {
 	},
 }
 
-local term_height = 35
+local term_height = 25
 local config = {
 	layout = {
 		{
