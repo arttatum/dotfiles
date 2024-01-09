@@ -20,4 +20,27 @@ dap.configurations.rust = {
 	},
 }
 
-require("dapui").setup({})
+vim.keymap.set("n", "<leader>Db", dap.toggle_breakpoint, { desc = "toggle breakpoint" })
+vim.keymap.set("n", "<leader>Dc", dap.continue, { desc = "continue" })
+vim.keymap.set("n", "<leader>Do", dap.step_over, { desc = "step over" })
+vim.keymap.set("n", "<leader>Di", dap.step_into, { desc = "step into" })
+
+local dapui = require("dapui")
+dapui.setup()
+
+vim.keymap.set("n", "<leader>Dx", dap.terminate, { desc = "step over" })
+
+dap.listeners.before.attach.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+	dapui.close()
+end
+
+require("nvim-dap-virtual-text").setup()

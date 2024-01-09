@@ -27,6 +27,9 @@ require("packer").startup(function(use)
 	-- Add symbols to LSP suggestions
 	use("onsails/lspkind.nvim")
 
+	-- Configure lsp for neovim APIs... and packages!
+	use("folke/neodev.nvim")
+
 	-- File explorer
 	use({
 		"nvim-tree/nvim-tree.lua",
@@ -161,7 +164,7 @@ require("packer").startup(function(use)
 	-- debugger
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
-
+	use("theHamsta/nvim-dap-virtual-text")
 	if packer_bootstrap then
 		require("packer").sync()
 	end

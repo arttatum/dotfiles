@@ -18,7 +18,7 @@ wk.setup({
 })
 wk.register({
 	mode = { "n", "v" },
-	["<leader>d"] = { name = "+debugger" },
+	["<leader>D"] = { name = "+debugger" },
 	["<leader>f"] = { name = "+find" },
 	["<leader>g"] = { name = "+git" },
 	["<leader>q"] = { name = "+quit/session" },
