@@ -8,6 +8,14 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	-- All formatter configurations are opt-in
 	filetype = {
+		tex = {
+			function()
+				return { exe = "latexindent", args = { "-w" }, stdin = true }
+			end,
+			function()
+				return { exe = "bibtex-tidy", args = { "--wrap=60", "--sort-fields", "--no-curly" }, stdin = true }
+			end,
+		},
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
 		lua = {
