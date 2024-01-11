@@ -1,0 +1,111 @@
+# yabai
+
+## restart yabai
+ctrl + alt + cmd - r : yabai --restart-service
+
+## layout
+ctrl + alt - b : yabai -m space --layout bsp
+ctrl + alt - f : yabai -m space --layout float
+ctrl + alt - s : yabai -m space --layout stack
+
+## focus window (bsp layout)
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+alt - x : yabai -m window --focus recent
+alt - 0x29 : yabai -m window --focus stack.next # ; - stack layout only
+alt - 0x2B : yabai -m window --focus stack.prev # , - stack layout only
+
+## swap window (bsp layout)
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+alt + shift - x : yabai -m window --swap recent
+
+## move window (bsp & float layouts)
+alt + cmd - h : [[ `yabai_window_layout` == "bsp" ]] && echo "is bsp" || echo "not bsp"
+alt + cmd - j : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp south || yabai -m window --move rel:0:20
+alt + cmd - k : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp north || yabai -m window --move rel:0:-20
+alt + cmd - l : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp east || yabai -m window --move rel:20:0
+
+#alt + cmd - h : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp west || yabai -m window --move rel:-20:0
+#alt + cmd - j : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp south || yabai -m window --move rel:0:20
+#alt + cmd - k : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp north || yabai -m window --move rel:0:-20
+#alt + cmd - l : [[ `yabai_window_layout` == "bsp" ]] && yabai -m window --warp east || yabai -m window --move rel:20:0
+## resize window (bsp layout)
+shift + alt - 0 : yabai -m space --balance # balance windows
+
+## resize window (float layout)
+shift + alt - up : [[ yabai_window_side == "left" ]] && yabai -m window --grid 1:1:0:0:1:1    # fill window
+shift + alt - left : yabai -m window --grid 1:2:0:0:1:1  # fill left-half
+shift + alt - right : yabai -m window --grid 1:2:1:0:1:1 # fill right-half
+
+## focus monitor
+alt - x  : yabai -m display --focus recent
+alt - z  : yabai -m display --focus prev
+alt - c  : yabai -m display --focus next
+alt - 1  : yabai -m display --focus 1
+alt - 2  : yabai -m display --focus 2
+alt - 3  : yabai -m display --focus 3
+
+## send window to monitor and follow focus
+alt + shift - x  : yabai -m window --display recent && yabai -m display --focus recent
+alt + shift - z  : yabai -m window --display prev && yabai -m display --focus prev
+alt + shift - c  : yabai -m window --display next && yabai -m display --focus next
+alt + shift - 1  : yabai -m window --display 1 && yabai -m display --focus 1
+alt + shift - 2  : yabai -m window --display 2 && yabai -m display --focus 2
+alt + shift - 3  : yabai -m window --display 3 && yabai -m display --focus 3
+
+# increase window size
+shift + alt - a : yabai -m window --resize left:-20:0
+shift + alt - s : yabai -m window --resize bottom:0:20
+shift + alt - w : yabai -m window --resize top:0:-20
+shift + alt - d : yabai -m window --resize right:20:0
+
+# decrease window size
+shift + cmd - a : yabai -m window --resize left:20:0
+shift + cmd - s : yabai -m window --resize bottom:0:-20
+shift + cmd - w : yabai -m window --resize top:0:20
+shift + cmd - d : yabai -m window --resize right:-20:0
+
+# set insertion point in focused container
+ctrl + alt - h : yabai -m window --insert west
+ctrl + alt - j : yabai -m window --insert south
+ctrl + alt - k : yabai -m window --insert north
+ctrl + alt - l : yabai -m window --insert east
+ctrl + alt - i : yabai -m window --insert stack
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
+
+# toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# float / unfloat window and restore position
+# alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# toggle topmost (keep above other windows)
+alt - o : yabai -m window --toggle topmost
+
+# change layout of desktop
+ctrl + alt - a : yabai -m space --layout bsp
+ctrl + alt - d : yabai -m space --layout float
+ctrl + alt - s : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "float" else "bsp" end')
