@@ -1,63 +1,64 @@
 * {
-	font-family: "CaskaydiaCove Nerd Font";
-	font-size: 18px;
-	padding: 2px 8px 2px 8px;
+  font-family: "CaskaydiaCove Nerd Font";
+  font-size: 18px;
+  padding: 2px 8px 2px 8px;
 }
 
 window#waybar {
-	background: transparent;
+  background: transparent;
   border-radius: 10px;
-	min-height: 0;
+  min-height: 0;
 }
 
 /* Groups */
 
-.modules-left, .modules-center, .modules-right {
+.modules-left,
+.modules-center,
+.modules-right {
   border: #4f0e75 1.8px solid;
   border-radius: 10px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-	background: #0b0e1e;
+  background: #0b0e1e;
   margin: 0px 10px;
   margin-top: 10px;
 }
 
-
 /* Label Customization */
 button label {
-	border: none;
-	background: transparent;
+  border: none;
+  background: transparent;
 }
 
 /* Module Customization */
 
 #workspaces {
-	background: transparent;
+  background: transparent;
 }
 
 #workspaces button {
-color: #ff21a6;
-	margin: 0;
+  color: #ff21a6;
+  margin: 0;
 }
 
 #workspaces button.active {
-	color: #81a1c1;
+  color: #81a1c1;
 }
 
 #window {
-  color: #9621FF;
+  color: #9621ff;
 }
 
 #clock {
-	color: #e5e9f0;
+  color: #e5e9f0;
 }
 
 #idle_inhibitor {
-	color: #d8dee9;
+  color: #d8dee9;
 }
 
 #pulseaudio.output {
-	color: #ff2160;
+  color: #ff2160;
 }
 
 #disk {
@@ -65,63 +66,58 @@ color: #ff21a6;
 }
 
 #memory {
-	color: #de21ff;
+  color: #de21ff;
 }
 
 #cpu {
-  color: #9621FF
+  color: #9621ff;
 }
 
 #temperature {
-	color: #7221ff;
+  color: #7221ff;
 }
 
 #network {
-	color: #3321ff;
+  color: #3321ff;
 }
 
 #tray {
-	color: #eceff4;
+  color: #eceff4;
 }
-
 
 #custom-cava {
-         color: #9621FF
+  color: #9621ff;
 }
 
-
-#custom-network_traffic{
-	color: #de21ff;
-
+#custom-network_traffic {
+  color: #de21ff;
 }
 
 #custom-logout {
-	color: #9621FF;
-	font-size: 12px;
+  color: #9621ff;
+  font-size: 12px;
 }
 
-
 #custom-launch_wofi {
-color: #ff21a6;
+  color: #ff21a6;
 }
 
 #custom-lock_screen {
-color: #ff21a6;
+  color: #ff21a6;
 }
 
 #custom-power_btn {
-color: #ff21a6;
+  color: #ff21a6;
 }
 
 #custom-updates {
-color: #ff21a6;
+  color: #ff21a6;
 }
 
 #clock {
-color: #ff21a6;
+  color: #ff21a6;
 }
 
-
 #pulseaudio {
-color: #ff21a6;
+  color: #ff21a6;
 }

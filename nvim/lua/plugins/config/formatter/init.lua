@@ -52,12 +52,18 @@ require("formatter").setup({
 		python = {
 			require("formatter.filetypes.python").black,
 		},
+		json = {
+			require("formatter.filetypes.json").prettier,
+		},
+		css = {
+			require("formatter.filetypes.css").prettier,
+		},
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
-			require("formatter.filetypes.any").remove_trailing_whitespace,
+			require("formatter.filetypes.any").prettier,
 		},
 	},
 })
