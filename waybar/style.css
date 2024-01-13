@@ -15,11 +15,13 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  border: #4f0e75 1.8px solid;
+  border: transparent 6px solid;
   border-radius: 10px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  background: #0b0e1e;
+  background:
+    linear-gradient(#1d2021, #1d2021) padding-box,
+    linear-gradient(to right, #9d0006, #d65d0e) border-box;
   margin: 0px 10px;
   margin-top: 10px;
 }
@@ -37,87 +39,62 @@ button label {
 }
 
 #workspaces button {
-  color: #ff21a6;
+  color: #a89984;
   margin: 0;
 }
 
 #workspaces button.active {
-  color: #81a1c1;
+  color: #fb4934;
 }
 
 #window {
-  color: #9621ff;
+  color: #fb4934;
 }
 
 #clock {
-  color: #e5e9f0;
-}
-
-#idle_inhibitor {
-  color: #d8dee9;
+  color: #d3869b;
 }
 
 #pulseaudio.output {
-  color: #ff2160;
+  color: #83a598;
 }
 
 #disk {
-  color: #ff21a6;
+  color: #fb4934;
 }
 
 #memory {
-  color: #de21ff;
+  color: #fb4934;
 }
 
 #cpu {
-  color: #9621ff;
+  color: #fb4934;
 }
 
 #temperature {
-  color: #7221ff;
+  color: #fb4934;
 }
 
 #network {
-  color: #3321ff;
+  color: #fb4934;
 }
 
 #tray {
-  color: #eceff4;
-}
-
-#custom-cava {
-  color: #9621ff;
-}
-
-#custom-network_traffic {
-  color: #de21ff;
-}
-
-#custom-logout {
-  color: #9621ff;
-  font-size: 12px;
-}
-
-#custom-launch_wofi {
-  color: #ff21a6;
+  color: #fb4934;
 }
 
 #custom-lock_screen {
-  color: #ff21a6;
+  color: #cc241d;
 }
 
 #custom-power_btn {
-  color: #ff21a6;
+  color: #cc241d;
 }
 
 #custom-updates {
   color: #ff21a6;
 }
 
-#clock {
-  color: #ff21a6;
-}
-
 #pulseaudio {
-  color: #ff21a6;
+  color: #fb4934;
 }
