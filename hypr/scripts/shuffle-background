@@ -1,0 +1,5 @@
+/bin/ls $HOME/wallpapers/** | shuf | while read file
+do
+	swww img $HOME/wallpapers/nordic-wallpapers/$file;
+	sleep 60;
+done
