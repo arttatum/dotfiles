@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+kitty --start-as=normal sh -c 'hyprpicker -na && sleep 5'
