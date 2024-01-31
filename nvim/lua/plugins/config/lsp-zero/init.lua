@@ -14,6 +14,9 @@ require("mason-lspconfig").setup({
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
+		-- force mason-lspconfig NOT to handle rust-analyzer...
+		-- rustacean will deal with it automatically
+		rust_analyzer = function() end,
 	},
 })
 
