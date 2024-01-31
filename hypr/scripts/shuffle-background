@@ -1,5 +1,7 @@
-/bin/ls $HOME/wallpapers/** | shuf | while read file
+wallpaperdir=$HOME/wallpapers/brettlangdon
+
+/bin/ls $wallpaperdir/** | shuf | while read file
 do
-	swww img $HOME/wallpapers/nordic-wallpapers/$file;
+	swww img $wallpaperdir/$file;
 	sleep 60;
 done
