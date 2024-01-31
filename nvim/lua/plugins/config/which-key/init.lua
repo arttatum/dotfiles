@@ -20,9 +20,9 @@ wk.register({
 	mode = { "n", "v" },
 	["<leader>D"] = { name = "+debugger" },
 	["<leader>f"] = { name = "+find" },
+	["<leader>v"] = { name = "+lsp" },
 	["<leader>g"] = { name = "+git" },
 	["<leader>q"] = { name = "+quit/session" },
 	["<leader>t"] = { name = "+toggle" },
-	["<leader>v"] = { name = "+lsp" },
 	["<leader><tab>"] = { name = "+tabs" },
 })
