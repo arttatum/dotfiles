@@ -32,6 +32,14 @@ button label {
   background: transparent;
 }
 
+/* Use icons instead of font-awesome */
+#custom-colourpicker {
+  background-image: url("/usr/share/icons/BeautyLine/apps/scalable/paint.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+}
+
 /* Module Customization */
 
 #workspaces {
