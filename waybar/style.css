@@ -40,6 +40,26 @@ button label {
   background-size: 35%;
 }
 
+#custom-lock_screen {
+  background-image: url("/usr/share/icons/BeautyLine/apps/scalable/lock.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+}
+
+#custom-power_btn {
+  background-image: url("/usr/share/icons/BeautyLine/apps/scalable/system-shutdown.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+}
+
+#custom-updates {
+  background-image: url("/usr/share/icons/BeautyLine/actions/scalable/download.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 40%;
+}
 /* Module Customization */
 
 #workspaces {
@@ -85,22 +105,6 @@ button label {
 
 #network {
   color: #fb4934;
-}
-
-#tray {
-  color: #fb4934;
-}
-
-#custom-lock_screen {
-  color: #cc241d;
-}
-
-#custom-power_btn {
-  color: #cc241d;
-}
-
-#custom-updates {
-  color: #ff21a6;
 }
 
 #pulseaudio {
