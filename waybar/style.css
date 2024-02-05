@@ -67,12 +67,19 @@ button label {
 }
 
 #workspaces button {
-  color: #a89984;
+  background-image: url("/home/herbie/.config/dotfiles/pokes/vsicons-custom-icons/default_banana.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
   margin: 0;
 }
 
 #workspaces button.active {
-  color: #fb4934;
+  background-image: url("/home/herbie/.config/dotfiles/pokes/vsicons-custom-icons/default_banana_opened.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  transition: background-size 0.3s ease-in-out;
 }
 
 #window {
