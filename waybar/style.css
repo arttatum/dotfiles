@@ -2,11 +2,12 @@
   font-family: "CaskaydiaCove Nerd Font";
   font-size: 18px;
   padding: 2px 8px 2px 8px;
+  color: #844798;
 }
 
 window#waybar {
   background: transparent;
-  border-radius: 10px;
+  border-radius: 3px;
   min-height: 0;
 }
 
@@ -15,15 +16,14 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  border: transparent 6px solid;
+  border: transparent 3px solid;
   border-radius: 10px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   background:
-    linear-gradient(#1d2021, #1d2021) padding-box,
-    linear-gradient(to right, #9d0006, #d65d0e) border-box;
-  margin: 0px 10px;
-  margin-top: 10px;
+    linear-gradient(#25222d, #1d2021) padding-box,
+    linear-gradient(to right, #5c3bb3, #25222d) border-box;
+  margin-top: 5px;
 }
 
 /* Label Customization */
@@ -80,40 +80,4 @@ button label {
   background-repeat: no-repeat;
   background-size: 65%;
   transition: background-size 0.3s ease-in-out;
-}
-
-#window {
-  color: #fb4934;
-}
-
-#clock {
-  color: #d3869b;
-}
-
-#pulseaudio.output {
-  color: #83a598;
-}
-
-#disk {
-  color: #fb4934;
-}
-
-#memory {
-  color: #fb4934;
-}
-
-#cpu {
-  color: #fb4934;
-}
-
-#temperature {
-  color: #fb4934;
-}
-
-#network {
-  color: #fb4934;
-}
-
-#pulseaudio {
-  color: #fb4934;
 }
