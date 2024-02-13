@@ -2,7 +2,7 @@
   font-family: "CaskaydiaCove Nerd Font";
   font-size: 18px;
   padding: 2px 8px 2px 8px;
-  color: #844798;
+  color: #ec85e8;
 }
 
 window#waybar {
@@ -21,8 +21,8 @@ window#waybar {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   background:
-    linear-gradient(#25222d, #1d2021) padding-box,
-    linear-gradient(to right, #5c3bb3, #25222d) border-box;
+    linear-gradient(#0e1d00, #0e1d00) padding-box,
+    linear-gradient(to right, #b2147b, #62326a) border-box;
   margin-top: 5px;
 }
 
@@ -44,21 +44,21 @@ button label {
   background-image: url("/usr/share/icons/BeautyLine/apps/scalable/lock.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 35%;
+  background-size: 38%;
 }
 
 #custom-power_btn {
   background-image: url("/usr/share/icons/BeautyLine/apps/scalable/system-shutdown.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 35%;
+  background-size: 40%;
 }
 
 #custom-updates {
   background-image: url("/usr/share/icons/BeautyLine/actions/scalable/download.svg");
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 40%;
+  background-size: 33%;
 }
 /* Module Customization */
 
@@ -67,17 +67,65 @@ button label {
 }
 
 #workspaces button {
-  background-image: url("/home/herbie/.config/dotfiles/pokes/vsicons-custom-icons/default_banana.svg");
+  background-image: url("/home/herbie/.config/dotfiles/pokes/ghost_green.avif");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 35%;
+  background-size: 75%;
   margin: 0;
 }
 
-#workspaces button.active {
-  background-image: url("/home/herbie/.config/dotfiles/pokes/vsicons-custom-icons/default_banana_opened.svg");
+#workspaces button.empty {
+  background-image: url("/home/herbie/.config/dotfiles/pokes/ghost.avif");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 65%;
+  background-size: 75%;
   transition: background-size 0.3s ease-in-out;
+}
+#workspaces button.active {
+  background-image: url("/home/herbie/.config/dotfiles/pokes/pacman.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 95%;
+  transition: background-size 0.3s ease-in-out;
+}
+
+#pulseaudio {
+  background-image: url("/usr/share/icons/BeautyLine/actions/scalable/audio.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  margin-left: 15px;
+  margin-right: 0px;
+}
+
+#pulseaudio.muted {
+  background-image: url("/usr/share/icons/BeautyLine/actions/scalable/audio-volume-muted-panel.svg");
+}
+
+#custom-sysmon {
+  background-image: url("/usr/share/icons/BeautyLine/apps/scalable/applications-utilities.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  margin-left: 5px;
+  margin-right: 0px;
+}
+
+.sysmon {
+}
+
+#cpu {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: #633261;
+}
+
+#memory {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #633261;
+}
+
+#disk {
+  background: #633261;
 }
