@@ -185,9 +185,9 @@ require("packer").startup(function(use)
 	})
 
 	-- debugger
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
-	use("theHamsta/nvim-dap-virtual-text")
+	-- use("mfussenegger/nvim-dap")
+	-- use("rcarriga/nvim-dap-ui")
+	-- use("theHamsta/nvim-dap-virtual-text")
 	if packer_bootstrap then
 		require("packer").sync()
 	end

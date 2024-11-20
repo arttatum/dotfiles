@@ -17,12 +17,14 @@ wk.setup({
 	key_labels = { ["<leader>"] = "SPC" },
 })
 wk.register({
-	mode = { "n", "v" },
-	["<leader>D"] = { name = "+debugger" },
-	["<leader>f"] = { name = "+find" },
-	["<leader>v"] = { name = "+lsp" },
-	["<leader>g"] = { name = "+git" },
-	["<leader>q"] = { name = "+quit/session" },
-	["<leader>t"] = { name = "+toggle" },
-	["<leader><tab>"] = { name = "+tabs" },
+	{
+		mode = { "n", "v" },
+		{ "<leader><tab>", group = "tabs" },
+		{ "<leader>D", group = "debugger" },
+		{ "<leader>f", group = "find" },
+		{ "<leader>g", group = "git" },
+		{ "<leader>q", group = "quit/session" },
+		{ "<leader>t", group = "toggle" },
+		{ "<leader>v", group = "lsp" },
+	},
 })
